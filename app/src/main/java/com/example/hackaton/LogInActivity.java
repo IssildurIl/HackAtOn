@@ -49,6 +49,7 @@ public class LogInActivity extends AppCompatActivity {
         Toast.makeText(LogInActivity.this,"зашел", Toast.LENGTH_LONG).show();
 
         setContentView(R.layout.log_in_layout);
+        fonttext();
         mSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
@@ -145,5 +146,23 @@ public class LogInActivity extends AppCompatActivity {
         Toast.makeText(LogInActivity.this,"загрузил преференсы" + savedMail , Toast.LENGTH_LONG).show();
         inputEmail.setText(savedMail);
         inputPassword.setText(savedPas);
+    }
+
+    public void fonttext() {
+        final EditText txt1 = (EditText) findViewById(R.id.email);
+        txt1.setTypeface(Typeface.createFromAsset(
+                getAssets(), "fonts/HELVETICAREGULAR.TTF"));
+        final EditText txt2 = (EditText)findViewById(R.id.password);
+        txt2.setTypeface(Typeface.createFromAsset(
+                getAssets(), "fonts/HELVETICAREGULAR.TTF"));
+        final Button btn1 = (Button) findViewById(R.id.login);
+        btn1.setTypeface(Typeface.createFromAsset(
+                getAssets(), "fonts/HELVETICAREGULAR.TTF"));
+        final Button btn2 = (Button) findViewById(R.id.signup);
+        btn2.setTypeface(Typeface.createFromAsset(
+                getAssets(), "fonts/HELVETICAREGULAR.TTF"));
+        final Button btn3 = (Button) findViewById(R.id.reset_password);
+        btn3.setTypeface(Typeface.createFromAsset(
+                getAssets(), "fonts/HELVETICAREGULAR.TTF"));
     }
 }

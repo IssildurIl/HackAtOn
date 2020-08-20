@@ -1,8 +1,6 @@
 package com.example.hackaton.ui.person;
 
 import android.graphics.drawable.Drawable;
-import android.view.View;
-import android.widget.Button;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
