@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModel;
 public class PersonViewModel extends ViewModel {
 
     private MutableLiveData<String> mText;
-    public void gotoSign(){}
 
     public PersonViewModel() {
         mText = new MutableLiveData<>();
@@ -20,4 +19,5 @@ public class PersonViewModel extends ViewModel {
     public LiveData<String> getText() {
         return mText;
     }
+
 }

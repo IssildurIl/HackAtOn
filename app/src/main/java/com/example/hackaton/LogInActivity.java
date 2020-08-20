@@ -39,9 +39,13 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
-        //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
+        if (auth.getCurrentUser() != null) {
+            startActivity(new Intent(LogInActivity.this, MainActivity.class));
+            finish();
+        }
+        //Get Firebase auth instance
+
         Toast.makeText(LogInActivity.this,"зашел", Toast.LENGTH_LONG).show();
 
         setContentView(R.layout.log_in_layout);
