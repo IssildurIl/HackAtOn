@@ -15,7 +15,7 @@ public class SplashScreenLayout extends AppCompatActivity {
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         EasySplashScreen config = new EasySplashScreen(SplashScreenLayout.this)
                 .withFullScreen()
-                .withTargetActivity(MainActivity.class)
+                .withTargetActivity(LogInActivity.class)
                 .withSplashTimeOut(3000)
                 .withBackgroundResource(R.drawable.load);
         View easySplashScreen = config.create();
