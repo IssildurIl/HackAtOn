@@ -45,7 +45,7 @@ public class LogInActivity extends AppCompatActivity {
             finish();
         }
         //Get Firebase auth instance
-
+//Get Firebase auth instance
         Toast.makeText(LogInActivity.this,"зашел", Toast.LENGTH_LONG).show();
 
         setContentView(R.layout.log_in_layout);
