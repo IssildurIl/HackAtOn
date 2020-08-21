@@ -29,6 +29,7 @@ import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
+import com.example.hackaton.LogInActivity;
 import com.example.hackaton.R;
 import com.example.hackaton.ui.person.PersonViewModel;
 
@@ -44,6 +45,7 @@ public class PersonFragment extends Fragment {
     private SharedPreferences mSettings;
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_NETNAME = "net player name";
+    public static final String APP_PREFERENCES_PASS="pass";
     String[] Teams = { "Легион Цезаря", "Братство Стали", "Подрывники", "Ван Мурлегемы",
             "НКР", "Муты", "Шаурма" };
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -53,7 +55,7 @@ public class PersonFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_person
                 , container, false);
         //-------------------------------------->Сохранить настройки<------------------------------//
-
+        final Button chngAcc = (Button) root.findViewById(R.id.chngAcc);
         final Button saveBtn = (Button) root.findViewById(R.id.saveChanges);
         final Button loadImg = (Button) root.findViewById(R.id.loadImg);
         final EditText inputnick = root.findViewById(R.id.inputNick);
@@ -72,7 +74,15 @@ public class PersonFragment extends Fragment {
                 }
             }
         });
-
+        chngAcc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                SharedPreferences.Editor ed = mSettings.edit();
+                ed.putString(APP_PREFERENCES_PASS, "");
+                ed.commit();
+                startActivity(new Intent(getActivity(), LogInActivity.class));
+            }
+        });
 
         loadImg.setOnClickListener(new View.OnClickListener() {
             @Override
