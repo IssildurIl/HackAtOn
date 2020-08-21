@@ -62,6 +62,7 @@
     </style>
 
     <style name="BigText" style="@style/TextAppearance.AppCompat">
+        <item name="android:textAlignment">center</item>
         <item name="android:textColor">@color/colorBlack</item>
         <item name="android:background">@android:color/transparent</item>
         <item name="android:textSize">26sp</item>
