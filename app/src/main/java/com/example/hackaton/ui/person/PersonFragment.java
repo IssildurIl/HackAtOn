@@ -33,6 +33,7 @@ import com.example.hackaton.LogInActivity;
 import com.example.hackaton.R;
 import com.example.hackaton.ui.person.PersonViewModel;
 
+import java.io.File;
 import java.io.IOException;
 
 
@@ -77,9 +78,6 @@ public class PersonFragment extends Fragment {
         chngAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor ed = mSettings.edit();
-                ed.putString(APP_PREFERENCES_PASS, "");
-                ed.commit();
                 startActivity(new Intent(getActivity(), LogInActivity.class));
             }
         });

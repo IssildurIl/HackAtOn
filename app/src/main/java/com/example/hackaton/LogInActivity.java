@@ -40,10 +40,7 @@ public class LogInActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         auth = FirebaseAuth.getInstance();
-        if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LogInActivity.this, MainActivity.class));
-            finish();
-        }
+
         //Get Firebase auth instance
 //Get Firebase auth instance
         Toast.makeText(LogInActivity.this,"зашел", Toast.LENGTH_LONG).show();
@@ -115,7 +112,7 @@ public class LogInActivity extends AppCompatActivity {
                                     ed.putString(APP_PREFERENCES_NETNAME,email.substring(0,email.indexOf("@")));
                                     ed.commit();
                                     Toast.makeText(LogInActivity.this, email.substring(0,email.indexOf("@")), Toast.LENGTH_LONG).show();
-                                    saveText(email,password);
+                                        saveText(email,password);
                                     Intent intent = new Intent(LogInActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
@@ -129,8 +126,6 @@ public class LogInActivity extends AppCompatActivity {
 
     }
     public void saveText(String email, String pass) {
-        //inputEmail = (EditText) findViewById(R.id.email);
-        //inputPassword = (EditText) findViewById(R.id.password);
         SharedPreferences.Editor ed = mSettings.edit();
         ed.putString(APP_PREFERENCES_EMAIL, email);
         ed.putString(APP_PREFERENCES_PASS, pass);
