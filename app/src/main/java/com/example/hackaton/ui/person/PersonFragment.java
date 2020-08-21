@@ -32,6 +32,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.hackaton.LogInActivity;
 import com.example.hackaton.R;
 import com.example.hackaton.ui.person.PersonViewModel;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.io.File;
 import java.io.IOException;
@@ -42,6 +43,7 @@ public class PersonFragment extends Fragment {
     static final int GALLERY_REQUEST = 1;
     private int RESULT_OK=1;
     ImageView chsImg;
+    private FirebaseAuth auth;
     String playerName= "";
     private SharedPreferences mSettings;
     public static final String APP_PREFERENCES = "mysettings";
@@ -55,6 +57,7 @@ public class PersonFragment extends Fragment {
                 ViewModelProviders.of(this).get(PersonViewModel.class);
         View root = inflater.inflate(R.layout.fragment_person
                 , container, false);
+        auth = FirebaseAuth.getInstance();
         //-------------------------------------->Сохранить настройки<------------------------------//
         final Button chngAcc = (Button) root.findViewById(R.id.chngAcc);
         final Button saveBtn = (Button) root.findViewById(R.id.saveChanges);
@@ -78,6 +81,7 @@ public class PersonFragment extends Fragment {
         chngAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                auth.signOut();
                 startActivity(new Intent(getActivity(), LogInActivity.class));
             }
         });
