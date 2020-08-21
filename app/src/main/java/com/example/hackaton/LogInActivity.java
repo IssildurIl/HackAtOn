@@ -32,7 +32,6 @@ public class LogInActivity extends AppCompatActivity {
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_EMAIL = "mail"; // имя кота
     public static final String APP_PREFERENCES_PASS="pass";
-    public static final String APP_PREFERENCES_NETNAME="net player name";
     FirebaseDatabase database;
     DatabaseReference playerRef;
     String playerName="";
@@ -112,11 +111,6 @@ public class LogInActivity extends AppCompatActivity {
                                         Toast.makeText(LogInActivity.this, getString(R.string.auth_fail), Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    SharedPreferences.Editor ed = mSettings.edit();
-                                    ed.putString(APP_PREFERENCES_NETNAME,email.substring(0,email.indexOf("@")));
-                                    ed.commit();
-                                    Toast.makeText(LogInActivity.this, email.substring(0,email.indexOf("@")), Toast.LENGTH_LONG).show();
-                                        saveText(email,password);
                                     Intent intent = new Intent(LogInActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();

@@ -11,6 +11,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 import android.content.Intent;
+import android.widget.Toolbar;
 
 import com.example.hackaton.ui.home.HomeFragment;
 import com.example.hackaton.ui.person.PersonFragment;
@@ -18,19 +19,23 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class SignUpActivity extends AppCompatActivity {
 
-    private EditText inputEmail, inputPassword;
+    private EditText inputEmail, inputPassword,inputUser;
     private Button btnSignIn, btnSignUp, btnResetPassword;
     private ProgressBar progressBar;
     private FirebaseAuth auth;
-
+    DatabaseReference reference;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.signup_activity);
-
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
 
@@ -38,6 +43,7 @@ public class SignUpActivity extends AppCompatActivity {
         btnSignUp = (Button) findViewById(R.id.sign_up_btn);
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
+        inputUser= (EditText) findViewById(R.id.name);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +58,11 @@ public class SignUpActivity extends AppCompatActivity {
             public void onClick(View v) {
                 String email = inputEmail.getText().toString().trim();
                 String password = inputPassword.getText().toString().trim();
+                String username = inputUser.getText().toString().trim();
+                if (TextUtils.isEmpty(username)) {
+                    Toast.makeText(getApplicationContext(), "Введите Ваше имя!", Toast.LENGTH_SHORT).show();
+                    return;
+                }
 
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplicationContext(), "Введите Email адрес!", Toast.LENGTH_SHORT).show();
@@ -67,27 +78,10 @@ public class SignUpActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Пароль слишком короткий. Он должен быть не менее 6 знаков!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                else {
+                    register(username,email,password);
+                }
                 progressBar.setVisibility(View.VISIBLE);
-                //create user
-                auth.createUserWithEmailAndPassword(email, password)
-                        .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
-                            @Override
-                            public void onComplete(@NonNull Task<AuthResult> task) {
-                                Toast.makeText(SignUpActivity.this, "Регистрация прошла успешно!", Toast.LENGTH_SHORT).show();
-                                progressBar.setVisibility(View.GONE);
-                                // If sign in fails, display a message to the user. If sign in succeeds
-                                // the auth state listener will be notified and logic to handle the
-                                // signed in user can be handled in the listener.
-                                if (!task.isSuccessful()) {
-                                    Toast.makeText(SignUpActivity.this, "Ошибка регестрации" + task.getException(),
-                                            Toast.LENGTH_SHORT).show();
-                                } else {
-                                    startActivity(new Intent(SignUpActivity.this, MainActivity.class));
-                                    finish();
-                                }
-                            }
-                        });
 
             }
         });
@@ -97,6 +91,44 @@ public class SignUpActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         progressBar.setVisibility(View.GONE);
+    }
+
+    private void register(final String username, String email, String password){
+        auth.createUserWithEmailAndPassword(email, password)
+                .addOnCompleteListener(SignUpActivity.this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        Toast.makeText(SignUpActivity.this, "Регистрация прошла успешно!", Toast.LENGTH_SHORT).show();
+                        progressBar.setVisibility(View.GONE);
+                        if (!task.isSuccessful()) {
+                            Toast.makeText(SignUpActivity.this, "Ошибка регестрации" + task.getException(),
+                                    Toast.LENGTH_SHORT).show();
+                        } else {
+                            FirebaseUser firebaseUser= auth.getCurrentUser();
+                            assert firebaseUser !=null;
+                            String userId=firebaseUser.getUid();
+                            reference = FirebaseDatabase.getInstance().getReference("Users").child(userId);
+
+                            HashMap <String, String> hashMap = new HashMap<>();
+                            hashMap.put("id",userId);
+                            hashMap.put("username", username);
+                            hashMap.put("imageURL","default");
+
+                            reference.setValue(hashMap).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                @Override
+                                public void onComplete(@NonNull Task<Void> task) {
+                                    if(task.isSuccessful()){
+                                        Intent intent = new Intent(SignUpActivity.this,MainActivity.class);
+                                        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK|Intent.FLAG_ACTIVITY_NEW_TASK);
+                                        startActivity(intent);
+                                        finish();
+                                    }
+                                }
+                            });
+                        }
+                    }
+                });
+
     }
 
 }
