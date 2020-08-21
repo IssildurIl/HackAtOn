@@ -84,7 +84,7 @@ public class PersonFragment extends Fragment {
             }
         });
         mSettings = this.getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-        playerName = mSettings.getString(APP_PREFERENCES_NETNAME,"default player");
+        playerName = mSettings.getString(APP_PREFERENCES_NETNAME,"default user");
         inputnick.setText(playerName);
         //---------------->Спиннер<-----------------------------------------//
 
@@ -148,20 +148,17 @@ public class MyCustomAdapter extends ArrayAdapter<String> {
     public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
         Bitmap bitmap = null;
-        Toast.makeText(getContext().getApplicationContext(), "Я зашел", Toast.LENGTH_SHORT).show();
         switch(requestCode) {
             case GALLERY_REQUEST:
                 Toast.makeText(getContext().getApplicationContext(), ""+resultCode, Toast.LENGTH_SHORT).show();
                 if(resultCode == -1){
                     Uri selectedImage = imageReturnedIntent.getData();
-                    Toast.makeText(getContext().getApplicationContext(), "Я попытался присвоить битмапу", Toast.LENGTH_SHORT).show();
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), selectedImage);
                         Toast.makeText(getContext().getApplicationContext(), "Я попытался присвоить битмапу", Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
-                    Toast.makeText(getContext().getApplicationContext(), "Я зашел и загрузил", Toast.LENGTH_SHORT).show();
                     chsImg.setImageBitmap(bitmap);
                     chsImg.setImageURI(selectedImage);
                 }
