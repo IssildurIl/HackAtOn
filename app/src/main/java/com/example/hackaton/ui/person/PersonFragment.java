@@ -151,7 +151,8 @@ public class MyCustomAdapter extends ArrayAdapter<String> {
         Toast.makeText(getContext().getApplicationContext(), "Я зашел", Toast.LENGTH_SHORT).show();
         switch(requestCode) {
             case GALLERY_REQUEST:
-                Toast.makeText(getContext().getApplicationContext(), "Я зашел и зашел", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext().getApplicationContext(), ""+resultCode, Toast.LENGTH_SHORT).show();
+                if(resultCode == -1){
                     Uri selectedImage = imageReturnedIntent.getData();
                     Toast.makeText(getContext().getApplicationContext(), "Я попытался присвоить битмапу", Toast.LENGTH_SHORT).show();
                     try {
@@ -163,6 +164,7 @@ public class MyCustomAdapter extends ArrayAdapter<String> {
                     Toast.makeText(getContext().getApplicationContext(), "Я зашел и загрузил", Toast.LENGTH_SHORT).show();
                     chsImg.setImageBitmap(bitmap);
                     chsImg.setImageURI(selectedImage);
+                }
         }
     }
     @Override
