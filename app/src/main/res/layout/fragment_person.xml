@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".ui.person.PersonFragment">
 
-    <EditText
+    <TextView
         android:id="@+id/inputNick"
         android:layout_width="136dp"
         android:layout_height="62dp"

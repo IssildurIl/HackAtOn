@@ -2,7 +2,9 @@ package com.example.hackaton.ui.person;
 
 import android.app.Person;
 import android.content.ContentResolver;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.media.ImageWriter;
@@ -35,6 +37,10 @@ public class PersonFragment extends Fragment {
     static final int GALLERY_REQUEST = 1;
     private int RESULT_OK=1;
     ImageView chsImg;
+    String playerName= "";
+    private SharedPreferences mSettings;
+    public static final String APP_PREFERENCES = "mysettings";
+    public static final String APP_PREFERENCES_NETNAME = "net player name";
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         PersonViewModel =
@@ -45,7 +51,7 @@ public class PersonFragment extends Fragment {
 
         final Button saveBtn = (Button) root.findViewById(R.id.saveChanges);
         final Button loadImg = (Button) root.findViewById(R.id.loadImg);
-        final EditText inputnick = root.findViewById(R.id.inputNick);
+        final TextView inputnick = root.findViewById(R.id.inputNick);
         chsImg = root.findViewById(R.id.chooseImage);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,6 +78,9 @@ public class PersonFragment extends Fragment {
 
             }
         });
+        mSettings = this.getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
+        playerName = mSettings.getString(APP_PREFERENCES_NETNAME,"default player");
+        inputnick.setText(playerName);
         return root;
     }
     @Override
