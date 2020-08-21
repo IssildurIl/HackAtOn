@@ -14,9 +14,12 @@ import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -41,13 +44,15 @@ public class PersonFragment extends Fragment {
     private SharedPreferences mSettings;
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_NETNAME = "net player name";
+    String[] Teams = { "Легион Цезаря", "Братство Стали", "Подрывники", "Ван Мурлегемы",
+            "НКР", "Муты", "Шаурма" };
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         PersonViewModel =
                 ViewModelProviders.of(this).get(PersonViewModel.class);
         View root = inflater.inflate(R.layout.fragment_person
                 , container, false);
-        //-----------------------------------------------------------------
+        //-------------------------------------->Сохранить настройки<------------------------------//
 
         final Button saveBtn = (Button) root.findViewById(R.id.saveChanges);
         final Button loadImg = (Button) root.findViewById(R.id.loadImg);
@@ -81,6 +86,16 @@ public class PersonFragment extends Fragment {
         mSettings = this.getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         playerName = mSettings.getString(APP_PREFERENCES_NETNAME,"default player");
         inputnick.setText(playerName);
+        //---------------->Спиннер<-----------------------------------------//
+
+        final Spinner spinner = root.findViewById(R.id.spinner);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),
+                R.layout.row, R.id.teams, Teams);
+        spinner.setAdapter(adapter);
+        spinner.setSelection(1);
+
+
+
         return root;
     }
     @Override

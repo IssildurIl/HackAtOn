@@ -7,9 +7,9 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
     <string-array name="football">
-        <item>Дебилы</item>
-        <item>Дегроданты</item>
-        <item>Неандертальцы</item>
-        <item>Умственно отсталые</item>
+        <item>Команда 1</item>
+        <item>Команда 2</item>
+        <item>Команда 3</item>
+        <item>Команда 4</item>
     </string-array>
 </resources>
