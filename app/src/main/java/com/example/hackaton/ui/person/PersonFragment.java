@@ -56,7 +56,7 @@ public class PersonFragment extends Fragment {
 
         final Button saveBtn = (Button) root.findViewById(R.id.saveChanges);
         final Button loadImg = (Button) root.findViewById(R.id.loadImg);
-        final TextView inputnick = root.findViewById(R.id.inputNick);
+        final EditText inputnick = root.findViewById(R.id.inputNick);
         chsImg = root.findViewById(R.id.chooseImage);
         saveBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -89,19 +89,69 @@ public class PersonFragment extends Fragment {
         //---------------->Спиннер<-----------------------------------------//
 
         final Spinner spinner = root.findViewById(R.id.spinner);
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this.getActivity(),
-                R.layout.row, R.id.teams, Teams);
+        MyCustomAdapter adapter = new MyCustomAdapter(getContext(),
+                R.layout.row, Teams);
         spinner.setAdapter(adapter);
         spinner.setSelection(1);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
 
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view,
+                                       int pos, long id) {
 
+            }
 
+            @Override
+            public void onNothingSelected(AdapterView<?> arg0) {
+
+            }
+        });
         return root;
     }
+//-------------------------------->Spinner<------------------------------------//
+public class MyCustomAdapter extends ArrayAdapter<String> {
+
+    public MyCustomAdapter(Context context, int textViewResourceId,
+                           String[] objects) {
+        super(context, textViewResourceId, objects);
+    }
+
+    @Override
+    public View getDropDownView(int position, View convertView,
+                                ViewGroup parent) {
+
+        return getCustomView(position, convertView, parent);
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+
+        return getCustomView(position, convertView, parent);
+    }
+
+    public View getCustomView(int position, View convertView,
+                              ViewGroup parent) {
+
+        LayoutInflater inflater = getLayoutInflater();
+        View row = inflater.inflate(R.layout.row, parent, false);
+        TextView label = (TextView) row.findViewById(R.id.teams);
+        label.setText(Teams[position]);
+
+        ImageView icon = (ImageView) row.findViewById(R.id.icon);
+
+        if (Teams[position] == "Подрывники") {
+            icon.setImageResource(R.drawable.evil_karma);
+        } else {
+            //icon.setImageResource(R.drawable.vault);
+        }
+        return row;
+    }
+}
+
+//--------------------------->Фото<----------------------------------//
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
-
         Bitmap bitmap = null;
         switch(requestCode) {
             case GALLERY_REQUEST:
