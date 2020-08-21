@@ -94,18 +94,13 @@ public class PersonFragment extends Fragment {
         spinner.setAdapter(adapter);
         spinner.setSelection(1);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-
             @Override
             public void onItemSelected(AdapterView<?> parent, View view,
-                                       int pos, long id) {
-
-            }
-
+                                       int pos, long id) {}
             @Override
-            public void onNothingSelected(AdapterView<?> arg0) {
-
-            }
+            public void onNothingSelected(AdapterView<?> arg0) {}
         });
+
         return root;
     }
 //-------------------------------->Spinner<------------------------------------//
@@ -153,19 +148,21 @@ public class MyCustomAdapter extends ArrayAdapter<String> {
     public void onActivityResult(int requestCode, int resultCode, Intent imageReturnedIntent) {
         super.onActivityResult(requestCode, resultCode, imageReturnedIntent);
         Bitmap bitmap = null;
+        Toast.makeText(getContext().getApplicationContext(), "Я зашел", Toast.LENGTH_SHORT).show();
         switch(requestCode) {
             case GALLERY_REQUEST:
-                if(resultCode == RESULT_OK){
+                Toast.makeText(getContext().getApplicationContext(), "Я зашел и зашел", Toast.LENGTH_SHORT).show();
                     Uri selectedImage = imageReturnedIntent.getData();
+                    Toast.makeText(getContext().getApplicationContext(), "Я попытался присвоить битмапу", Toast.LENGTH_SHORT).show();
                     try {
                         bitmap = MediaStore.Images.Media.getBitmap(getContext().getContentResolver(), selectedImage);
                         Toast.makeText(getContext().getApplicationContext(), "Я попытался присвоить битмапу", Toast.LENGTH_SHORT).show();
                     } catch (IOException e) {
                         e.printStackTrace();
                     }
+                    Toast.makeText(getContext().getApplicationContext(), "Я зашел и загрузил", Toast.LENGTH_SHORT).show();
                     chsImg.setImageBitmap(bitmap);
                     chsImg.setImageURI(selectedImage);
-                }
         }
     }
     @Override
