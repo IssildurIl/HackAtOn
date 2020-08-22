@@ -1,8 +1,10 @@
 package com.example.hackaton.ui.person;
 
+import android.app.AlertDialog;
 import android.app.Person;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -31,6 +33,7 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hackaton.LogInActivity;
 import com.example.hackaton.R;
+import com.example.hackaton.UpdateStatusActivity;
 import com.example.hackaton.model.User;
 import com.example.hackaton.ui.person.PersonViewModel;
 import com.google.firebase.auth.FirebaseAuth;
@@ -56,7 +59,7 @@ public class PersonFragment extends Fragment {
     private SharedPreferences mSettings;
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_PASS="pass";
-    String[] Teams = { "Легион Цезаря", "Братство Стали", "Подрывники", "Ван Мурлегемы",
+    String[] Teams = { "ФК Сочи", "Легион Цезаря", "Братство Стали", "Подрывники", "Ван Мурлегемы",
             "НКР", "Муты", "Шаурма" };
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -69,6 +72,11 @@ public class PersonFragment extends Fragment {
         final Button chngAcc = (Button) root.findViewById(R.id.chngAcc);
         final Button saveBtn = (Button) root.findViewById(R.id.saveChanges);
         final Button loadImg = (Button) root.findViewById(R.id.loadImg);
+        // кнопка для alertdialog и повышения статуса
+        final Button statusBut = (Button) root.findViewById(R.id.statusBut);
+        final Button upStatusBut = (Button) root.findViewById(R.id.upStatusBut);
+        final Button geoBut = (Button) root.findViewById(R.id.geoBut);
+        //
         final EditText inputnick = root.findViewById(R.id.inputNick);
         chsImg = root.findViewById(R.id.chooseImage);
         saveBtn.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +110,35 @@ public class PersonFragment extends Fragment {
 
             }
         });
+        //
+        statusBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder Dialog = new AlertDialog.Builder(getActivity());
+                //deleteDialog.setTitle("Вы действительно хотите удалить выбранные ингредиенты?");
+                Dialog.setView(R.layout.cust_dialog);
+                Dialog.setPositiveButton("Ок", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+                Dialog.show();
+            }
+        });
+        upStatusBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), UpdateStatusActivity.class));
+            }
+        });
+        geoBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //startActivity(new Intent(getActivity(), MapActivity.class));
+            }
+        });
+
 
         //------------------->Имя с базы<---------------------------------------//
         firebaseUser = auth.getCurrentUser();
@@ -112,10 +149,14 @@ public class PersonFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user=dataSnapshot.getValue(User.class);
                 //Toast.makeText(getContext().getApplicationContext(), ""+user.getUsername(), Toast.LENGTH_SHORT).show();
-                inputnick.setText(user.getUsername());
+                //15.15ly
+                //inputnick.setText(user.getUsername());
+                /*
                 if (user.getImageURL().equals("default")){
                     chsImg.setImageResource(R.drawable.vault);
                 }
+
+                 */
 
             }
 
