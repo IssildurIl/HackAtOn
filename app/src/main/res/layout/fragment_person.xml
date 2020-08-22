@@ -6,14 +6,16 @@
     android:layout_height="match_parent"
     tools:context=".ui.person.PersonFragment">
 
-    <EditText
+    <TextView
         android:id="@+id/statusView"
         android:layout_width="265dp"
-        android:layout_height="52dp"
+        android:layout_height="42dp"
         android:layout_marginTop="8dp"
+        android:gravity="center_vertical"
         android:hint="Статус"
+        android:paddingStart="3dp"
         android:singleLine="true"
-        android:text="Base"
+        android:text="Статус: Base"
         app:layout_constraintStart_toStartOf="@+id/chooseImage"
         app:layout_constraintTop_toBottomOf="@+id/chooseImage" />
 
@@ -50,7 +52,7 @@
     <Button
         android:id="@+id/loadImg"
         android:layout_width="118dp"
-        android:layout_height="37dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:text="Загрузить"
         app:layout_constraintBottom_toBottomOf="@+id/chooseImage"
@@ -79,7 +81,7 @@
     <Button
         android:id="@+id/geoBut"
         android:layout_width="118sp"
-        android:layout_height="37dp"
+        android:layout_height="40dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="8dp"
         android:text="геолокация"
