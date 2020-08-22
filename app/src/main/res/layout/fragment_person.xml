@@ -9,7 +9,7 @@
     <EditText
         android:id="@+id/statusView"
         android:layout_width="265dp"
-        android:layout_height="62dp"
+        android:layout_height="52dp"
         android:layout_marginTop="8dp"
         android:hint="Статус"
         android:singleLine="true"
@@ -20,7 +20,7 @@
     <EditText
         android:id="@+id/inputNick"
         android:layout_width="265dp"
-        android:layout_height="62dp"
+        android:layout_height="52dp"
         android:layout_marginTop="8dp"
         android:hint="Имя"
         android:singleLine="true"
@@ -87,7 +87,7 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="265dp"
-        android:layout_height="52dp"
+        android:layout_height="42dp"
         android:layout_marginTop="8dp"
         android:gravity="center_vertical"
         android:paddingStart="3sp"
