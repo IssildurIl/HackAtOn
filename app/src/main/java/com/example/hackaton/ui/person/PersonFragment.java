@@ -31,20 +31,30 @@ import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hackaton.LogInActivity;
 import com.example.hackaton.R;
+import com.example.hackaton.model.User;
 import com.example.hackaton.ui.person.PersonViewModel;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
+import java.io.File;
 import java.io.IOException;
 
 
 public class PersonFragment extends Fragment {
     private PersonViewModel PersonViewModel;
     static final int GALLERY_REQUEST = 1;
-    private int RESULT_OK=1;
     ImageView chsImg;
+    private FirebaseAuth auth;
     String playerName= "";
+    FirebaseUser firebaseUser;
+    DatabaseReference reference;
     private SharedPreferences mSettings;
     public static final String APP_PREFERENCES = "mysettings";
-    public static final String APP_PREFERENCES_NETNAME = "net player name";
     public static final String APP_PREFERENCES_PASS="pass";
     String[] Teams = { "Легион Цезаря", "Братство Стали", "Подрывники", "Ван Мурлегемы",
             "НКР", "Муты", "Шаурма" };
@@ -54,6 +64,7 @@ public class PersonFragment extends Fragment {
                 ViewModelProviders.of(this).get(PersonViewModel.class);
         View root = inflater.inflate(R.layout.fragment_person
                 , container, false);
+        auth = FirebaseAuth.getInstance();
         //-------------------------------------->Сохранить настройки<------------------------------//
         final Button chngAcc = (Button) root.findViewById(R.id.chngAcc);
         final Button saveBtn = (Button) root.findViewById(R.id.saveChanges);
@@ -77,9 +88,7 @@ public class PersonFragment extends Fragment {
         chngAcc.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                SharedPreferences.Editor ed = mSettings.edit();
-                ed.putString(APP_PREFERENCES_PASS, "");
-                ed.commit();
+                auth.signOut();
                 startActivity(new Intent(getActivity(), LogInActivity.class));
             }
         });
@@ -93,9 +102,28 @@ public class PersonFragment extends Fragment {
 
             }
         });
-        mSettings = this.getActivity().getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
-        playerName = mSettings.getString(APP_PREFERENCES_NETNAME,"default user");
-        inputnick.setText(playerName);
+
+        //------------------->Имя с базы<---------------------------------------//
+        firebaseUser = auth.getCurrentUser();
+        reference = FirebaseDatabase.getInstance().getReference("Users").child(firebaseUser.getUid());
+
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                User user=dataSnapshot.getValue(User.class);
+                //Toast.makeText(getContext().getApplicationContext(), ""+user.getUsername(), Toast.LENGTH_SHORT).show();
+                inputnick.setText(user.getUsername());
+                if (user.getImageURL().equals("default")){
+                    chsImg.setImageResource(R.drawable.vault);
+                }
+
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+
+            }
+        });
         //---------------->Спиннер<-----------------------------------------//
 
         final Spinner spinner = root.findViewById(R.id.spinner);
