@@ -79,7 +79,7 @@
         android:id="@+id/geoBut"
         android:layout_width="275dp"
         android:layout_height="60dp"
-        android:text="сменить пользователя"
+        android:text="геолокация"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chngAcc" />

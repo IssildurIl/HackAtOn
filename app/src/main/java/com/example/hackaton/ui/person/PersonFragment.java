@@ -74,6 +74,7 @@ public class PersonFragment extends Fragment {
         // кнопка для alertdialog и повышения статуса
         final Button statusBut = (Button) root.findViewById(R.id.statusBut);
         final Button upStatusBut = (Button) root.findViewById(R.id.upStatusBut);
+        final Button geoBut = (Button) root.findViewById(R.id.geoBut);
         //
         final EditText inputnick = root.findViewById(R.id.inputNick);
         chsImg = root.findViewById(R.id.chooseImage);
@@ -128,6 +129,13 @@ public class PersonFragment extends Fragment {
                 startActivity(new Intent(getActivity(), LogInActivity.class));
             }
         });
+        geoBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), MapActivity.class));
+            }
+        });
+
 
         //------------------->Имя с базы<---------------------------------------//
         firebaseUser = auth.getCurrentUser();
