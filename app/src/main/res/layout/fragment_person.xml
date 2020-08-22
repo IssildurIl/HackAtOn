@@ -24,8 +24,8 @@
         android:layout_marginTop="8dp"
         android:hint="Имя"
         android:singleLine="true"
-        app:layout_constraintTop_toBottomOf="@+id/statusView"
-        tools:layout_editor_absoluteX="16dp" />
+        app:layout_constraintStart_toStartOf="@+id/statusView"
+        app:layout_constraintTop_toBottomOf="@+id/statusView" />
 
     <Spinner
         android:id="@+id/spinner"
