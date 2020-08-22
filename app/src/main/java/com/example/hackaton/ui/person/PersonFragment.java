@@ -34,6 +34,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.hackaton.LogInActivity;
 import com.example.hackaton.MapActivity;
 import com.example.hackaton.R;
+import com.example.hackaton.UpdateStatusActivity;
 import com.example.hackaton.model.User;
 import com.example.hackaton.ui.person.PersonViewModel;
 import com.google.firebase.auth.FirebaseAuth;
@@ -114,26 +115,28 @@ public class PersonFragment extends Fragment {
         statusBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder deleteDialog = new AlertDialog.Builder(getActivity());
-                deleteDialog.setTitle("Вы действительно хотите удалить выбранные ингредиенты?");
-                deleteDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                AlertDialog.Builder Dialog = new AlertDialog.Builder(getActivity());
+                //deleteDialog.setTitle("Вы действительно хотите удалить выбранные ингредиенты?");
+                Dialog.setView(R.layout.cust_dialog);
+                Dialog.setPositiveButton("Ок", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                     }
                 });
+                Dialog.show();
             }
         });
         upStatusBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), LogInActivity.class));
+                startActivity(new Intent(getActivity(), UpdateStatusActivity.class));
             }
         });
         geoBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), MapActivity.class));
+                //startActivity(new Intent(getActivity(), MapActivity.class));
             }
         });
 
@@ -147,10 +150,14 @@ public class PersonFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user=dataSnapshot.getValue(User.class);
                 //Toast.makeText(getContext().getApplicationContext(), ""+user.getUsername(), Toast.LENGTH_SHORT).show();
-                inputnick.setText(user.getUsername());
+                //15.15ly
+                //inputnick.setText(user.getUsername());
+                /*
                 if (user.getImageURL().equals("default")){
                     chsImg.setImageResource(R.drawable.vault);
                 }
+
+                 */
 
             }
 

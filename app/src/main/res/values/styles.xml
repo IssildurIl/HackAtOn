@@ -1,6 +1,7 @@
 <resources>
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="colorControlActivated">@color/colorOrange</item>
         <!-- Customize your theme here. -->
 <!--        <item name="colorPrimary">@color/colorPrimary</item>-->
 <!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
@@ -17,7 +18,8 @@
 
     <style name="OrangeButton" style="@style/Widget.AppCompat.Button.Colored">
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:background">@color/colorOrange</item>
+        <item name="android:background">@drawable/orangeround</item>
+<!--        <item name="android:background">@color/colorOrange</item>-->
 <!--        <item name="android:background">#C62828</item>-->
         <item name="android:layout_marginLeft">15dp</item>
         <item name="android:layout_marginRight">15dp</item>
@@ -28,7 +30,7 @@
 
     <style name="GayButton" style="@style/Widget.AppCompat.Button.Colored">
         <item name="android:textColor">@color/colorWhite</item>
-        <item name="android:background">@color/colorGray</item>
+        <item name="android:background">@drawable/gayrounded</item>
         <item name="android:layout_marginLeft">15dp</item>
         <item name="android:layout_marginRight">15dp</item>
         <item name="android:layout_marginBottom">10dp</item>
@@ -39,12 +41,14 @@
 
 
     <style name="OrangeTextInputEditText" style="@style/TextAppearance.AppCompat">
-        <item name="android:textColor">@color/colorWhite</item>
+<!--        <item name="colorControlActivated">@color/colorOrange</item>-->
+<!--        <item name="colorControlHighlight">@color/colorOrange</item>-->
+        <item name="android:textColor">@color/colorDarkGray</item>
         <item name="android:textColorHint">@color/colorDarkGray</item>
         <item name="android:layout_marginLeft">15dp</item>
         <item name="android:layout_marginRight">15dp</item>
         <item name="android:layout_marginBottom">5dp</item>
-        <item name="android:backgroundTint">@color/colorOrange</item>
+        <item name="android:backgroundTint">@color/colorDarkGray</item>
         <item name="android:textSize">16sp</item>
     </style>
 

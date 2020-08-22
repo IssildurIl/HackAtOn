@@ -28,17 +28,18 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:gravity="center"
-            android:text="MeMeMay" />
+            android:text="MeMeMay"
+            style="@style/BigText"/>
     </LinearLayout>
 
     <com.google.android.material.textfield.TextInputLayout
-        style="@style/OrangeTextInputEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Email"
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            style="@style/OrangeTextInputEditText"
             android:id="@+id/email"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -52,10 +53,11 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:hint="Password"
-        style="@style/OrangeTextInputEditText"
+
         >
 
         <com.google.android.material.textfield.TextInputEditText
+            style="@style/OrangeTextInputEditText"
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

@@ -46,7 +46,7 @@ public class HomeFragment extends Fragment {
     }
     public void createExampleList() {
         mExampleList = new ArrayList<>();
-        mExampleList.add(new ExampleItem(R.drawable.vault, "Line 1", "Line 2"));
+        mExampleList.add(new ExampleItem(R.drawable.vault, "Line 1", "Line 2")); //Фоточка - заголовок - текст
         mExampleList.add(new ExampleItem(R.drawable.vault, "Line 3", "Line 4"));
         mExampleList.add(new ExampleItem(R.drawable.vault, "Line 5", "Line 6"));
         mExampleList.add(new ExampleItem(R.drawable.vault, "Line 7", "Line 8"));
@@ -55,7 +55,7 @@ public class HomeFragment extends Fragment {
         mExampleList.add(new ExampleItem(R.drawable.vault, "Line 13", "Line 14"));
 
     }
-    public void buildRecyclerView() {
+    public void buildRecyclerView() { //НЕ ТРОГАТЬ
 
         mRecyclerView.setHasFixedSize(true);
         mLayoutManager = new LinearLayoutManager(getContext());
