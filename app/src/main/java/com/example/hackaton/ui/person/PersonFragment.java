@@ -1,8 +1,10 @@
 package com.example.hackaton.ui.person;
 
+import android.app.AlertDialog;
 import android.app.Person;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -56,7 +58,7 @@ public class PersonFragment extends Fragment {
     private SharedPreferences mSettings;
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_PASS="pass";
-    String[] Teams = { "Легион Цезаря", "Братство Стали", "Подрывники", "Ван Мурлегемы",
+    String[] Teams = { "ФК Сочи", "Легион Цезаря", "Братство Стали", "Подрывники", "Ван Мурлегемы",
             "НКР", "Муты", "Шаурма" };
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -69,6 +71,10 @@ public class PersonFragment extends Fragment {
         final Button chngAcc = (Button) root.findViewById(R.id.chngAcc);
         final Button saveBtn = (Button) root.findViewById(R.id.saveChanges);
         final Button loadImg = (Button) root.findViewById(R.id.loadImg);
+        // кнопка для alertdialog и повышения статуса
+        final Button statusBut = (Button) root.findViewById(R.id.statusBut);
+        final Button upStatusBut = (Button) root.findViewById(R.id.upStatusBut);
+        //
         final EditText inputnick = root.findViewById(R.id.inputNick);
         chsImg = root.findViewById(R.id.chooseImage);
         saveBtn.setOnClickListener(new View.OnClickListener() {
@@ -100,6 +106,26 @@ public class PersonFragment extends Fragment {
                 photoPickerIntent.setType("image/*");
                 startActivityForResult(photoPickerIntent, GALLERY_REQUEST);
 
+            }
+        });
+        //
+        statusBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                AlertDialog.Builder deleteDialog = new AlertDialog.Builder(getActivity());
+                deleteDialog.setTitle("Вы действительно хотите удалить выбранные ингредиенты?");
+                deleteDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+
+                    }
+                });
+            }
+        });
+        upStatusBut.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getActivity(), LogInActivity.class));
             }
         });
 

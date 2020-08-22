@@ -7,14 +7,25 @@
     tools:context=".ui.person.PersonFragment">
 
     <EditText
+        android:id="@+id/statusView"
+        android:layout_width="265dp"
+        android:layout_height="62dp"
+        android:layout_marginTop="8dp"
+        android:hint="Статус"
+        android:singleLine="true"
+        android:text="Base"
+        app:layout_constraintStart_toStartOf="@+id/chooseImage"
+        app:layout_constraintTop_toBottomOf="@+id/chooseImage" />
+
+    <EditText
         android:id="@+id/inputNick"
-        android:layout_width="250dp"
+        android:layout_width="265dp"
         android:layout_height="62dp"
         android:layout_marginTop="8dp"
         android:hint="Имя"
         android:singleLine="true"
-        app:layout_constraintStart_toStartOf="@+id/textView"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
+        app:layout_constraintTop_toBottomOf="@+id/statusView"
+        tools:layout_editor_absoluteX="16dp" />
 
     <Spinner
         android:id="@+id/spinner"
@@ -30,11 +41,10 @@
         android:id="@+id/saveChanges"
         android:layout_width="275dp"
         android:layout_height="56dp"
-        android:layout_marginTop="8dp"
         android:text="Сохранить"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chngAcc" />
+        app:layout_constraintTop_toBottomOf="@+id/geoBut" />
 
     <Button
         android:id="@+id/loadImg"
@@ -55,17 +65,6 @@
         app:layout_constraintTop_toTopOf="parent"
         android:src="@drawable/ball"/>
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="250dp"
-        android:layout_height="52dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center_vertical"
-        android:paddingStart="3sp"
-        android:text="Base"
-        app:layout_constraintStart_toStartOf="@+id/chooseImage"
-        app:layout_constraintTop_toBottomOf="@+id/chooseImage" />
-
     <Button
         android:id="@+id/chngAcc"
         android:layout_width="275dp"
@@ -76,9 +75,18 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/spinner" />
 
+    <Button
+        android:id="@+id/geoBut"
+        android:layout_width="275dp"
+        android:layout_height="60dp"
+        android:text="сменить пользователя"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chngAcc" />
+
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="250dp"
+        android:layout_width="265dp"
         android:layout_height="52dp"
         android:layout_marginTop="8dp"
         android:gravity="center_vertical"
@@ -101,8 +109,8 @@
         android:id="@+id/statusBut"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
         android:background="@drawable/roundedbutton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
