@@ -19,10 +19,10 @@
 
     <TextView
         android:id="@+id/title"
-        android:layout_width="234dp"
-        android:layout_height="28dp"
-        android:layout_marginStart="132dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="288dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="120dp"
+        android:layout_marginTop="5dp"
         android:text="Заголовок новости"
         android:textColor="#000000"
         app:layout_constraintStart_toStartOf="parent"
@@ -30,13 +30,12 @@
 
     <TextView
         android:id="@+id/body"
-        android:layout_width="235dp"
-        android:layout_height="57dp"
-        android:layout_marginTop="50dp"
-        android:layout_marginEnd="44dp"
+        android:layout_width="286dp"
+        android:layout_height="70dp"
+        android:layout_marginTop="3dp"
         android:text="Короткая информация"
         android:textColor="#000000"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toEndOf="@+id/icone"
+        app:layout_constraintTop_toBottomOf="@+id/title" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -46,13 +46,15 @@ public class HomeFragment extends Fragment {
     }
     public void createExampleList() {
         mExampleList = new ArrayList<>();
-        mExampleList.add(new ExampleItem(R.drawable.vault, "Line 1", "Line 2")); //Фоточка - заголовок - текст
-        mExampleList.add(new ExampleItem(R.drawable.vault, "Line 3", "Line 4"));
-        mExampleList.add(new ExampleItem(R.drawable.vault, "Line 5", "Line 6"));
-        mExampleList.add(new ExampleItem(R.drawable.vault, "Line 7", "Line 8"));
-        mExampleList.add(new ExampleItem(R.drawable.vault, "Line 9", "Line 10"));
-        mExampleList.add(new ExampleItem(R.drawable.vault, "Line 11", "Line 12"));
-        mExampleList.add(new ExampleItem(R.drawable.vault, "Line 13", "Line 14"));
+        mExampleList.add(new ExampleItem(R.drawable.fcb, "Футбольный клуб барселона", "Барселона – Бавария\n" +
+                "Футбол, Лига чемпионов, 1/4\n" +
+                "14 августа, 22:00, Завершён")); //Фоточка - заголовок - текст
+        mExampleList.add(new ExampleItem(R.drawable.bal, "Сочи – Ростов", "Lorem Ipsum - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала"));
+        mExampleList.add(new ExampleItem(R.drawable.shirt, "Спартак – Зенит", "Lorem Ipsum - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала"));
+        mExampleList.add(new ExampleItem(R.drawable.sosser, "Сочи готовит Барселону","Lorem Ipsum - это текст часто используемый в печати и вэб-дизайне Lorem Ipsum является стандартной рыбой для текстов на латинице с начала"));
+        mExampleList.add(new ExampleItem(R.drawable.strat, "Спартак – Зенит", "Lorem Ipsum - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала"));
+        mExampleList.add(new ExampleItem(R.drawable.flatc, "Флатикон", "Флатикон, это сервис на котором мы берем иконки"));
+        mExampleList.add(new ExampleItem(R.drawable.vault, "Сочи", "Lorem Ipsum - это текст-\"рыба\", часто используемый в печати и вэб-дизайне. Lorem Ipsum является стандартной \"рыбой\" для текстов на латинице с начала"));
 
     }
     public void buildRecyclerView() { //НЕ ТРОГАТЬ
