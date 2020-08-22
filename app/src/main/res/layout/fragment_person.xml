@@ -67,6 +67,10 @@
         android:layout_marginStart="21dp"
         android:layout_marginTop="36dp"
         android:text="TextView"
+        app:layout_constraintStart_toStartOf="@+id/inputNick"
+        app:layout_constraintTop_toBottomOf="@+id/inputNick" />
+
+
         app:layout_constraintStart_toEndOf="@+id/chooseImage"
         app:layout_constraintTop_toTopOf="parent" />
 
