@@ -80,11 +80,11 @@ public class MapActivity extends AppCompatActivity {
                         try {
                             Geocoder geocoder= new Geocoder(MapActivity.this, Locale.getDefault());
                             List<Address> addresses = geocoder.getFromLocation(location.getLatitude(),location.getLongitude(),1);
-                            tv1.setText(Html.fromHtml("<font color = '#6200EE'><b>Latitude: </b><br></font>" +addresses.get(0).getLatitude()));
-                            tv2.setText(Html.fromHtml("<font color = '#6200EE'><b>Longitude: </b><br></font>" +addresses.get(0).getLongitude()));
-                            tv3.setText(Html.fromHtml("<font color = '#6200EE'><b>Country Name: </b><br></font>" +addresses.get(0).getCountryName()));
-                            tv4.setText(Html.fromHtml("<font color = '#6200EE'><b>Locality: </b><br></font>" +addresses.get(0).getLocality()));
-                            tv5.setText(Html.fromHtml("<font color = '#6200EE'><b>Set Address: </b><br></font>" +addresses.get(0).getAddressLine(0)));
+                            tv1.setText(Html.fromHtml("<font color = '#F57C00'><b>Широта: </b><br></font>" +addresses.get(0).getLatitude()));
+                            tv2.setText(Html.fromHtml("<font color = '#F57C00'><b>Долгота: </b><br></font>" +addresses.get(0).getLongitude()));
+                            tv3.setText(Html.fromHtml("<font color = '#F57C00'><b>Страна: </b><br></font>" +addresses.get(0).getCountryName()));
+                            tv4.setText(Html.fromHtml("<font color = '#F57C00'><b>Город: </b><br></font>" +addresses.get(0).getLocality()));
+                            tv5.setText(Html.fromHtml("<font color = '#F57C00'><b>Полный адрес: </b><br></font>" +addresses.get(0).getAddressLine(0)));
                         } catch (IOException e) {
                             e.printStackTrace();
                         }

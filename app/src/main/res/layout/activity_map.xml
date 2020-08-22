@@ -9,11 +9,10 @@
 
     <Button
         android:id="@+id/btn_loc"
-        android:layout_width="wrap_content"
+        style="@style/OrangeButton"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="89dp"
         android:layout_marginTop="100dp"
-        android:layout_marginLeft="100dp"
         android:text="Узнать геолокацию"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
