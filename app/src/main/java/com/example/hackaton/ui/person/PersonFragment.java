@@ -32,6 +32,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hackaton.LogInActivity;
+import com.example.hackaton.MapActivity;
 import com.example.hackaton.R;
 import com.example.hackaton.model.User;
 import com.example.hackaton.ui.person.PersonViewModel;
