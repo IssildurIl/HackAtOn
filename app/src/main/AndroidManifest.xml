@@ -17,6 +17,7 @@
         <activity android:name=".SignUpActivity" />
         <activity android:name=".ResPasActivity" />
         <activity android:name=".MainActivity" />
+        <activity android:name=".UpdateStatusActivity" />
         <activity android:name=".SplashScreenLayout">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
