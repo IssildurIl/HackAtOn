@@ -70,6 +70,7 @@ public class PersonFragment extends Fragment {
                 , container, false);
         auth = FirebaseAuth.getInstance();
         //-------------------------------------->Сохранить настройки<------------------------------//
+        final Spinner spinner = root.findViewById(R.id.spinner);
         final Button chngAcc = (Button) root.findViewById(R.id.chngAcc);
         final Button saveBtn = (Button) root.findViewById(R.id.saveChanges);
         final Button loadImg = (Button) root.findViewById(R.id.loadImg);
@@ -87,10 +88,12 @@ public class PersonFragment extends Fragment {
                     loadImg.setVisibility(View.INVISIBLE);
                     inputnick.setEnabled(false);
                     saveBtn.setText("Редактировать");
+                    spinner.setEnabled(false);
                 } else {
                     loadImg.setVisibility(View.VISIBLE);
                     inputnick.setEnabled(true);
                     saveBtn.setText("Сохранить");
+                    spinner.setEnabled(true);
                 }
             }
         });
@@ -168,7 +171,7 @@ public class PersonFragment extends Fragment {
         });
         //---------------->Спиннер<-----------------------------------------//
 
-        final Spinner spinner = root.findViewById(R.id.spinner);
+
         MyCustomAdapter adapter = new MyCustomAdapter(getContext(),
                 R.layout.row, Teams);
         spinner.setAdapter(adapter);
