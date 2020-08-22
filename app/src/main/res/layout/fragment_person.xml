@@ -6,23 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".ui.person.PersonFragment">
 
-    <TextView
+    <EditText
         android:id="@+id/statusView"
-        android:layout_width="265dp"
-        android:layout_height="42dp"
-        android:layout_marginTop="8dp"
-        android:gravity="center_vertical"
+        android:layout_width="384dp"
+        android:layout_height="40dp"
         android:hint="Статус"
-        android:paddingStart="3dp"
         android:singleLine="true"
-        android:text="Статус: Base"
-        app:layout_constraintStart_toStartOf="@+id/chooseImage"
-        app:layout_constraintTop_toBottomOf="@+id/chooseImage" />
+        android:text="Base"
+        tools:layout_editor_absoluteX="16dp"
+        tools:layout_editor_absoluteY="218dp" />
 
     <EditText
         android:id="@+id/inputNick"
-        android:layout_width="265dp"
-        android:layout_height="52dp"
+        android:layout_width="382dp"
+        android:layout_height="48dp"
         android:layout_marginTop="8dp"
         android:hint="Имя"
         android:singleLine="true"
@@ -31,8 +28,8 @@
 
     <Spinner
         android:id="@+id/spinner"
-        android:layout_width="229dp"
-        android:layout_height="50dp"
+        android:layout_width="230dp"
+        android:layout_height="40dp"
         android:layout_marginTop="8dp"
         android:entries="@array/football"
         android:spinnerMode="dialog"
@@ -41,57 +38,63 @@
 
     <Button
         android:id="@+id/saveChanges"
-        android:layout_width="275dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:text="Сохранить"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/chngAcc" />
-
-    <Button
-        android:id="@+id/loadImg"
-        android:layout_width="118dp"
+        style="@style/OrangeButton"
+        android:layout_width="360dp"
         android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:text="Загрузить"
-        app:layout_constraintBottom_toBottomOf="@+id/chooseImage"
-        app:layout_constraintStart_toEndOf="@+id/chooseImage" />
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="26dp"
+        android:layout_marginBottom="8dp"
+        android:text="Сохранить"
+        app:layout_constraintBottom_toTopOf="@+id/chngAcc"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
         android:id="@+id/chooseImage"
-        android:layout_width="130sp"
-        android:layout_height="130sp"
+        android:layout_width="161dp"
+        android:layout_height="155dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="16dp"
         android:src="@drawable/ball"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/chngAcc"
-        android:layout_width="275dp"
-        android:layout_height="60dp"
-        android:layout_marginTop="16dp"
-        android:text="сменить пользователя"
+        style="@style/GayButton"
+        android:layout_width="360dp"
+        android:layout_height="40dp"
+        android:layout_marginStart="68dp"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="16dp"
+        android:text="Cменить пользователя"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        app:layout_constraintStart_toStartOf="parent" />
 
     <Button
         android:id="@+id/geoBut"
-        android:layout_width="118sp"
+        style="@style/OrangeButton"
+        android:layout_width="152dp"
         android:layout_height="40dp"
+        android:text="Геолокация"
+        tools:layout_editor_absoluteX="250dp"
+        tools:layout_editor_absoluteY="371dp" />
+
+    <Button
+        android:id="@+id/loadImg"
+        style="@style/GayButton"
+        android:layout_width="166dp"
+        android:layout_height="26dp"
         android:layout_marginStart="16dp"
-        android:layout_marginBottom="8dp"
-        android:text="геолокация"
-        app:layout_constraintBottom_toTopOf="@+id/loadImg"
-        app:layout_constraintStart_toEndOf="@+id/chooseImage" />
+        android:text="Загрузить"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/chooseImage" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="265dp"
-        android:layout_height="42dp"
+        android:layout_width="383dp"
+        android:layout_height="41dp"
         android:layout_marginTop="8dp"
         android:gravity="center_vertical"
         android:paddingStart="3sp"
@@ -101,34 +104,34 @@
 
     <Button
         android:id="@+id/upStatusBut"
-        android:layout_width="275dp"
-        android:layout_height="56dp"
-        android:layout_marginTop="8dp"
-        android:text="повысить статус"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/saveChanges" />
+        style="@style/OrangeButton"
+        android:layout_width="163dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        android:text="Повысить статус"
+        app:layout_constraintEnd_toStartOf="@+id/statusBut"
+        app:layout_constraintTop_toTopOf="parent" />
 
     <Button
         android:id="@+id/statusBut"
         android:layout_width="40dp"
         android:layout_height="40dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="16dp"
+        android:layout_marginTop="16dp"
         android:background="@drawable/roundedbutton"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_editor_absoluteX="355dp" />
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="350dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_width="209dp"
+        android:layout_height="76dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="16dp"
         android:gravity="center_horizontal"
         android:text="Чтобы получить доступ к большему количеству мероприятий и стать ближе к команде - регистрируйте билеты или вступайте в клуб фанатов!"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/upStatusBut" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
