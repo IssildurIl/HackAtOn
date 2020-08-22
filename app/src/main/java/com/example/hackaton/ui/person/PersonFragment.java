@@ -136,7 +136,7 @@ public class PersonFragment extends Fragment {
         geoBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getActivity(), MapActivity.class));
+                startActivity(new Intent(getActivity(), MapActivity.class));
             }
         });
 
