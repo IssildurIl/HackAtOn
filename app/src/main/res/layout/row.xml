@@ -6,9 +6,9 @@
 
     <ImageView
         android:id="@+id/icon"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:src="@drawable/vault" />
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:src="@drawable/ball" />
 
     <TextView
         android:id="@+id/teams"

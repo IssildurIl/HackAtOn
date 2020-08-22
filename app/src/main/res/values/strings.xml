@@ -3,4 +3,11 @@
     <string name="title_home"></string>
     <string name="auth_fail">Ошибка Аутентификации</string>
     <string name="length_min_pas">6</string>
+
+    <string-array name="catNames">
+        <item>Brilliant</item>
+        <item>Premium</item>
+        <item>Active</item>
+        <item>Base</item>
+    </string-array>
 </resources>

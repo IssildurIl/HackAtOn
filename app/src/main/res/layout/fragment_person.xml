@@ -9,10 +9,8 @@
     <EditText
         android:id="@+id/statusView"
         android:layout_width="384dp"
-        android:layout_height="40dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="21dp"
-        android:layout_marginEnd="11dp"
+        android:layout_height="42dp"
+        android:layout_marginTop="16dp"
         android:hint="Статус"
         android:singleLine="true"
         android:text="Base"
@@ -21,7 +19,6 @@
         app:layout_constraintTop_toBottomOf="@+id/loadImg" />
 
     <EditText
-
         android:id="@+id/inputNick"
         android:layout_width="382dp"
         android:layout_height="48dp"
@@ -82,10 +79,10 @@
         style="@style/OrangeButton"
         android:layout_width="152dp"
         android:layout_height="40dp"
+        android:layout_marginStart="4dp"
         android:layout_marginTop="8dp"
-        android:layout_marginEnd="9dp"
         android:text="Геолокация"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/spinner"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
     <Button
@@ -101,7 +98,7 @@
     <TextView
         android:id="@+id/textView4"
         android:layout_width="383dp"
-        android:layout_height="41dp"
+        android:layout_height="42dp"
         android:layout_marginTop="8dp"
         android:gravity="center_vertical"
         android:paddingStart="3sp"
@@ -112,14 +109,12 @@
     <Button
         android:id="@+id/upStatusBut"
         style="@style/OrangeButton"
-        android:layout_width="140dp"
+        android:layout_width="163dp"
         android:layout_height="40dp"
-        android:layout_marginStart="7dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="8dp"
         android:text="Повысить статус"
         app:layout_constraintEnd_toStartOf="@+id/statusBut"
-        app:layout_constraintStart_toEndOf="@+id/chooseImage"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
@@ -134,16 +129,14 @@
 
     <TextView
         android:id="@+id/textView5"
-        android:layout_width="172dp"
-        android:layout_height="131dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginTop="70dp"
+        android:layout_width="209dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="16dp"
         android:gravity="center_horizontal"
         android:text="Чтобы получить доступ к большему количеству мероприятий и стать ближе к команде - регистрируйте билеты или вступайте в клуб фанатов!"
         android:textSize="12sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/chooseImage"
         app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

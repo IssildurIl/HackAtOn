@@ -32,6 +32,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProviders;
 
 import com.example.hackaton.LogInActivity;
+import com.example.hackaton.MapActivity;
 import com.example.hackaton.R;
 import com.example.hackaton.UpdateStatusActivity;
 import com.example.hackaton.model.User;
@@ -59,8 +60,8 @@ public class PersonFragment extends Fragment {
     private SharedPreferences mSettings;
     public static final String APP_PREFERENCES = "mysettings";
     public static final String APP_PREFERENCES_PASS="pass";
-    String[] Teams = { "ФК Сочи", "Легион Цезаря", "Братство Стали", "Подрывники", "Ван Мурлегемы",
-            "НКР", "Муты", "Шаурма" };
+    String[] Teams = { "ФК Сочи", "Команда 1", "Команда 2", "Команда 3", "Команда 4",
+            "Команда 5", "Команда 6", "Команда 7" };
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         PersonViewModel =
@@ -150,7 +151,7 @@ public class PersonFragment extends Fragment {
                 User user=dataSnapshot.getValue(User.class);
                 //Toast.makeText(getContext().getApplicationContext(), ""+user.getUsername(), Toast.LENGTH_SHORT).show();
                 //15.15ly
-                //inputnick.setText(user.getUsername());
+                inputnick.setText(user.getUsername());
                 /*
                 if (user.getImageURL().equals("default")){
                     chsImg.setImageResource(R.drawable.vault);
