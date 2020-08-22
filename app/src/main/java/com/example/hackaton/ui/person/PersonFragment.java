@@ -113,14 +113,15 @@ public class PersonFragment extends Fragment {
         statusBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                AlertDialog.Builder deleteDialog = new AlertDialog.Builder(getActivity());
-                deleteDialog.setTitle("Вы действительно хотите удалить выбранные ингредиенты?");
-                deleteDialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
+                AlertDialog.Builder Dialog = new AlertDialog.Builder(getActivity());
+                //deleteDialog.setTitle("Вы действительно хотите удалить выбранные ингредиенты?");
+                Dialog.setPositiveButton("Да", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialogInterface, int i) {
 
                     }
                 });
+                Dialog.show();
             }
         });
         upStatusBut.setOnClickListener(new View.OnClickListener() {
@@ -132,7 +133,7 @@ public class PersonFragment extends Fragment {
         geoBut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                startActivity(new Intent(getActivity(), MapActivity.class));
+                //startActivity(new Intent(getActivity(), MapActivity.class));
             }
         });
 
