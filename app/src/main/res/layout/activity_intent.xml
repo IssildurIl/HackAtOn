@@ -26,7 +26,7 @@
         android:layout_marginBottom="22dp"
         android:background="@drawable/border"
         android:textSize="16sp"
-        app:layout_constraintBottom_toTopOf="@+id/button"
+        app:layout_constraintBottom_toTopOf="@+id/gotoChat"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
@@ -46,7 +46,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/gotoChat"
         style="@style/OrangeButton"
         android:layout_width="350dp"
         android:layout_height="40dp"

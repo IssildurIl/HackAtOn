@@ -1,20 +1,23 @@
-package com.example.hackaton.model;
+package com.example.hackaton;
 
 import java.util.Date;
 
-public class ExChatMessage {
+public class ChatMessage {
+
     private String messageText;
     private String messageUser;
     private long messageTime;
 
-    public ExChatMessage(String messageText, String messageUser) {
+    public ChatMessage(String messageText, String messageUser) {
         this.messageText = messageText;
         this.messageUser = messageUser;
 
-        messageTime=new Date().getTime();
+        // Initialize to current time
+        messageTime = new Date().getTime();
     }
 
-    public ExChatMessage() {
+    public ChatMessage(){
+
     }
 
     public String getMessageText() {

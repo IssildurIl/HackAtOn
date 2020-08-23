@@ -3,9 +3,9 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="colorControlActivated">@color/colorOrange</item>
         <!-- Customize your theme here. -->
-<!--        <item name="colorPrimary">@color/colorPrimary</item>-->
-<!--        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>-->
-<!--        <item name="colorAccent">@color/colorAccent</item>-->
+<!--        <message name="colorPrimary">@color/colorPrimary</message>-->
+<!--        <message name="colorPrimaryDark">@color/colorPrimaryDark</message>-->
+<!--        <message name="colorAccent">@color/colorAccent</message>-->
         <item name="colorPrimary">@color/colorOrange</item>
     </style>
     <string-array name="football">
@@ -19,13 +19,13 @@
     <style name="OrangeButton" style="@style/Widget.AppCompat.Button.Colored">
         <item name="android:textColor">@color/colorWhite</item>
         <item name="android:background">@drawable/orangeround</item>
-<!--        <item name="android:background">@color/colorOrange</item>-->
-<!--        <item name="android:background">#C62828</item>-->
+<!--        <message name="android:background">@color/colorOrange</message>-->
+<!--        <message name="android:background">#C62828</message>-->
         <item name="android:layout_marginLeft">15dp</item>
         <item name="android:layout_marginRight">15dp</item>
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:textAllCaps">false</item>
-<!--        <item name="android:textSize">20dp</item>-->
+<!--        <message name="android:textSize">20dp</message>-->
     </style>
 
     <style name="GayButton" style="@style/Widget.AppCompat.Button.Colored">
@@ -36,13 +36,13 @@
         <item name="android:layout_marginBottom">10dp</item>
         <item name="android:textAllCaps">false</item>
         <item name="android:textSize">16sp</item>
-        <!--        <item name="android:textSize">20dp</item>-->
+        <!--        <message name="android:textSize">20dp</message>-->
     </style>
 
 
     <style name="OrangeTextInputEditText" style="@style/TextAppearance.AppCompat">
-<!--        <item name="colorControlActivated">@color/colorOrange</item>-->
-<!--        <item name="colorControlHighlight">@color/colorOrange</item>-->
+<!--        <message name="colorControlActivated">@color/colorOrange</message>-->
+<!--        <message name="colorControlHighlight">@color/colorOrange</message>-->
         <item name="android:textColor">@color/colorDarkGray</item>
         <item name="android:textColorHint">@color/colorDarkGray</item>
         <item name="android:layout_marginLeft">15dp</item>

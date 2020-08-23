@@ -152,16 +152,7 @@ public class PersonFragment extends Fragment {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 User user=dataSnapshot.getValue(User.class);
-                //Toast.makeText(getContext().getApplicationContext(), ""+user.getUsername(), Toast.LENGTH_SHORT).show();
-                //15.15ly
                 inputnick.setText(user.getUsername());
-                /*
-                if (user.getImageURL().equals("default")){
-                    chsImg.setImageResource(R.drawable.vault);
-                }
-
-                 */
-
             }
 
             @Override
